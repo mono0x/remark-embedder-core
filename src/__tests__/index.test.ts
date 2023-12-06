@@ -297,7 +297,11 @@ test('handleHTML works when requests are cached', async () => {
     await import('remark')
   )
     .remark()
-    .use(remarkEmbedder, {cache: myCache, transformers: [transformer], handleHTML})
+    .use(remarkEmbedder, {
+      cache: myCache,
+      transformers: [transformer],
+      handleHTML,
+    })
     .use((await import('remark-html')).default, {sanitize: false})
     .process(`[https://some-site.com](https://some-site.com)`)
 
